@@ -5,17 +5,16 @@ const app = express();
 
 app.use(express.json());
 
-const ACCESS_TOKEN = 'bsgxEsFHPdYVMaZEEDS/AZIaebtOo1GQDYjC/zsFpsrSoujiZOxkbicAkC9wbJz4s6b74aI4NrpxFpG6Z0bdOr+y5AT2qIefV789+CLX26OY+i0e8+u2ueY8BHTVQgibhyHkYsqTIyqN/jCg1vgxgQdB04t89/1O/w1cDnyilFU=';
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const STAFF_GROUP_ID = process.env.STAFF_GROUP_ID;
 
-const STAFF_GROUP_ID = 'Ca9a104c9738e5bf3397cbb8a86faab93';
+const FLASH_GROUP_ID = process.env.FLASH_GROUP_ID;
+const JT_GROUP_ID = process.env.JT_GROUP_ID;
+const SPX_GROUP_ID = process.env.SPX_GROUP_ID;
 
-const FLASH_GROUP_ID = 'C01b5ae649b0dec9f7c98866e13b7ecd3';
-const JT_GROUP_ID = 'Cd6fd2578e00d52d4622919c2843fc1cd';
-const SPX_GROUP_ID = 'C5d144d4d9187852cf4eaf12abaa6402a';
-
-// if (!ACCESS_TOKEN) {
-//   throw new Error("ACCESS_TOKEN missing");
-// }
+if (!ACCESS_TOKEN) {
+  throw new Error("ACCESS_TOKEN missing");
+}
 
 app.get('/', (req, res) => {
   res.send('LINE Webhook Online');
